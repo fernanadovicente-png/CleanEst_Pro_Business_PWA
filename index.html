@@ -3,26 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CleanEst Pro Business</title>
 
-    <!-- Manifest & ícone -->
-    <link rel="manifest" href="/CleanEst_Pro_Business_PWA/assets/manifest-D4k7-lJF.json" />
-    <link rel="icon" href="/CleanEst_Pro_Business_PWA/assets/icon-192-CxAw3ydB.png" />
+    <title>CleanCalc Pro</title>
+    <meta name="description" content="CleanCalc Pro — Application professionnelle d'estimation et de calcul de nettoyage." />
     <meta name="theme-color" content="#0284c7" />
-    <script type="module" crossorigin src="/CleanEst_Pro_Business_PWA/assets/index-CwEoEfCp.js"></script>
-    <link rel="stylesheet" crossorigin href="/CleanEst_Pro_Business_PWA/assets/index-BkCkxrGN.css">
+
+    <!-- Ícone & Manifest -->
+    <link rel="icon" href="/CleanEst_Pro_Business_PWA/icon-192.png" />
+    <link rel="manifest" href="/CleanEst_Pro_Business_PWA/manifest.json" />
+
+    <!-- Apple / Android PWA -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="CleanCalc Pro" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/CleanEst_Pro_Business_PWA/assets/index-DR3E_Nqn.js"></script>
+    <link rel="stylesheet" crossorigin href="/CleanEst_Pro_Business_PWA/assets/index-C25O5VgA.css">
   </head>
-  <body>
+
+  <body class="bg-sky-50">
     <div id="root"></div>
 
-    <!-- Entrada principal React -->
 
-    <!-- Registo do Service Worker -->
+    <!-- Service Worker -->
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("./service-worker.js")
+            .register("/CleanEst_Pro_Business_PWA/service-worker.js")
             .then(() => console.log("✅ Service Worker enregistré"))
             .catch((err) => console.error("SW erreur:", err));
         });
