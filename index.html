@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CleanEst Pro Business</title>
+
+    <!-- Manifest & ícone -->
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./icon-192.png" />
+    <meta name="theme-color" content="#0284c7" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Entrada principal React -->
+    <script type="module" src="./src/main.jsx"></script>
+
+    <!-- Registo do Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then(() => console.log("✅ Service Worker enregistré"))
+            .catch((err) => console.error("SW erreur:", err));
+        });
+      }
+    </script>
+  </body>
+</html>
