@@ -1,21 +1,37 @@
-self.addEventListener("install", (e) => {
-  console.log("🧩 Service Worker installé");
-  e.waitUntil(
-    caches.open("cleanest-cache-v1").then((cache) => {
-      return cache.addAll([
-        "/CleanEst_Pro_Business_PWA/",
-        "/CleanEst_Pro_Business_PWA/index.html",
-        "/CleanEst_Pro_Business_PWA/manifest.json",
-        "/CleanEst_Pro_Business_PWA/vite.svg",
-      ]);
+const CACHE_NAME = "cleanest-pro-cache-v1";
+const URLS_TO_CACHE = [
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./icon-192.png",
+  "./icon-512.png",
+];
+
+// Instala o Service Worker
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(URLS_TO_CACHE);
+    })
+  );
+  self.skipWaiting();
+});
+
+// Ativa e limpa caches antigos
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.map((key) => key !== CACHE_NAME && caches.delete(key)))
+    )
+  );
+  self.clients.claim();
+});
+
+// Intercepta requisições
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
     })
   );
 });
-
-self.addEventListener("fetch", (e) => {
-  e.respondWith(
-    caches.match(e.request).then((response) => response || fetch(e.request))
-  );
-});
-
-self.addEventListener("activate", () => console.log("⚡ Service Worker activé"));

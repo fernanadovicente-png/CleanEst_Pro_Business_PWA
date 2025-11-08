@@ -1,43 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>CleanCalc Pro</title>
-    <meta name="description" content="CleanCalc Pro — Application professionnelle d'estimation et de calcul de nettoyage." />
     <meta name="theme-color" content="#0284c7" />
+    <meta name="description" content="CleanEst Pro Business – Estimation de nettoyage professionnelle" />
 
-    <!-- Ícone & Manifest -->
-    <link rel="icon" href="/CleanEst_Pro_Business_PWA/icon-192.png" />
-    <link rel="manifest" href="/CleanEst_Pro_Business_PWA/manifest.json" />
+    <link rel="manifest" href="./assets/manifest-CFoqEzYm.json" />
+    <link rel="apple-touch-icon" href="./assets/icon-192-CxAw3ydB.png" />
 
-    <!-- Apple / Android PWA -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="CleanCalc Pro" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- Fonte -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/CleanEst_Pro_Business_PWA/assets/index-BqRUF9T4.js"></script>
-    <link rel="stylesheet" crossorigin href="/CleanEst_Pro_Business_PWA/assets/index-C25O5VgA.css">
+    <title>CleanEst Pro Business</title>
+    <script type="module" crossorigin src="./assets/index-BBUNrR9L.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C25O5VgA.css">
   </head>
-
-  <body class="bg-sky-50">
+  <body class="bg-sky-50 text-slate-800">
     <div id="root"></div>
-
-
-    <!-- Service Worker -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/CleanEst_Pro_Business_PWA/service-worker.js")
-            .then(() => console.log("✅ Service Worker enregistré"))
-            .catch((err) => console.error("SW erreur:", err));
-        });
-      }
-    </script>
   </body>
 </html>
